@@ -3,6 +3,8 @@ const context = canvas.getContext('2d');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
+let balls = [];
+
 class Ball {
    constructor() {
       this.radius = randomGenerator(20, 50);
