@@ -41,3 +41,21 @@ class Ball {
 function randomGenerator(min, max) {
    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+function Init() {
+   for(let i = 0; i < 10; i++) {
+      balls.push(new Ball());
+   }
+}
+
+let gameloop;
+function Gameloop() {
+   gameloop = requestAnimationFrame(Gameloop);
+   context.clearRect(0, 0, canvas.width, canvas.height);
+   for(let i = 0; i < balls.length; i++) {
+      balls[i].Move();
+   }
+}
+
+Init();
+Gameloop();
