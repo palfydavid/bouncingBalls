@@ -4,6 +4,8 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 
 let loop;
+let numOfBalls = 1;
+const numOfBallsLimit = 30;
 let balls = [];
 let colors = ["#00a8ff", "#9c88ff", "#fbc531", "#4cd137", "#e84118"];
 
@@ -41,12 +43,19 @@ class Ball {
    }
 }
 
+function AddNewBall(event) {
+   if(event.keyCode === 32 && numOfBalls < numOfBallsLimit) {
+      balls.push(new Ball());
+      numOfBalls++;
+   }
+}
+
 function randomGenerator(min, max) {
    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function Init() {
-   for(let i = 0; i < 10; i++) {
+   for(let i = 0; i < numOfBalls; i++) {
       balls.push(new Ball());
    }
 }
@@ -61,3 +70,5 @@ function Gameloop() {
 
 Init();
 Gameloop();
+
+window.addEventListener("keydown", AddNewBall);
