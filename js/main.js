@@ -33,13 +33,19 @@ class Ball {
 
       if(this.x + this.radius >= canvas.width || this.x - this.radius <= 0) {
          this.dx = -this.dx;
+         this.ChangeColor();
       }
 
       if(this.y + this.radius >= canvas.height || this.y - this.radius <= 0) {
          this.dy = -this.dy;
+         this.ChangeColor();
       }
 
       this.Draw();
+   }
+
+   ChangeColor() {
+      this.color = colors[randomGenerator(0, (colors.length - 1))];
    }
 }
 
