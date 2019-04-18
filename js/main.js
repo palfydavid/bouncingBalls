@@ -7,7 +7,7 @@ let loop;
 let numOfBalls = 1;
 const numOfBallsLimit = 30;
 let balls = [];
-const colors = ["#00a8ff", "#9c88ff", "#fbc531", "#4cd137", "#e84118"];
+const colors = ['#3F51B5', '#673AB7', '#9C27B0', '#E91E63', '#F44336', '#03A9F4', '#009688', '#4CAF50', '#4CAF50', '#8BC34A', '#FFEB3B', '#FF9800'];
 
 class Ball {
    constructor() {
@@ -61,12 +61,7 @@ function AddNewBall(event) {
 }
 
 function randomGenerator(min, max) {
-   let rnd;
-   do {
-      rnd = Math.floor(Math.random() * (max - min + 1)) + min;
-   }
-   while(rnd === 0)
-   return rnd;
+   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function Init() {
